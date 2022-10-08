@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>similar</title>
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&amp;display=swap">
+    <link rel="stylesheet" href="../static/assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../static/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="../static/assets/css/card-3-column-animation-shadows-images.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="../static/assets/css/Navbar-Right-Links-icons.css">
+    <link rel="stylesheet" href="../static/assets/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md py-3">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="#"><i class="fa fa-shopping-bag"></i><span style="font-family: Poppins, sans-serif;font-size: 2rem;"><strong>&nbsp;Procom</strong></span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-2">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/" style="font-family: Poppins, sans-serif;">Home</a></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"><a class="nav-link hoving" href="#" style="font-family: Poppins, sans-serif;"><i class="fab fa-github" style="font-size: 21px;"></i>&nbsp;GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="py-5">
+        <div class="container text-center" style="text-align: center;">
+            <div class="border rounded border-white d-inline-block flex-column justify-content-between align-items-center flex-lg-row bg-primary-gradient p-4 p-lg-5" style="display: flex;text-align: center;">
+                <div class="text-center text-lg-start d-block py-3 py-lg-1">
+                    <h2 class="fw-bold mb-2" style="font-family: Poppins, sans-serif;text-align: center;">Product Recommender</h2>
+                    <p class="text-center mb-0" style="font-family: Poppins, sans-serif;margin-top: 2rem;">Upload Your Product Image Here.</p>
+                </div>
+                <form action="/" enctype="multipart/form-data" class="d-flex justify-content-center flex-wrap flex-lg-nowrap" method="post">
+                    <div class="my-2"><input name="image_input" class="form-control" type="file" style="font-family: Poppins, sans-serif;"></div>
+                    <div class="my-2"><button class="btn form_button shadow ms-2" type="submit" style="font-family: Poppins, sans-serif;">Submit</button></div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <center>
+                <div class="col-auto col-sm-6 col-md-6 col-lg-3 col-xl-3" style="padding-top: 15px;padding-bottom: 15px;padding-right: 15px;padding-left: 15px;">
+                    {% if display_image %}
+                    <h4>Your input:</h4>
+                    <div class="bg-light border rounded shadow card" data-bss-hover-animate="pulse"><img class="card-img-top" src="../static/{{display_image}}"></div>
+                    {% endif %}
+                </div>
+                </center>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                
+                {% if imagelist %}
+                <h4>Our Recommendation:</h4>
+                {% for i in range(1,5)  %}
+                <div class="col-auto col-sm-6 col-md-6 col-lg-3 col-xl-3" style="padding-top: 15px;padding-bottom: 15px;padding-right: 15px;padding-left: 15px;">
+                    <div class="bg-light border rounded shadow card" data-bss-hover-animate="pulse"><img class="card-img-top" src="../static/{{imagelist[i]}}"></div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <footer class="text-center">
+        <div class="container text-muted py-4 py-lg-5">
+            <ul class="list-inline" style="font-family: Poppins, sans-serif;color: rgb(0,0,0);">
+                <li class="list-inline-item me-4"><a class="link hoving" href="/" style="font-size: 1.2rem;">Home</a></li>
+                <li class="list-inline-item me-4"><a class="link hoving" href="#" style="font-size: 1.2rem;"><i class="fab fa-github" style="font-size: 19px;"></i>&nbsp;GitHub</a></li>
+            </ul>
+            <p class="mb-0" style="font-family: Poppins, sans-serif; color: black;">Product Recommender System| By Anoop Joshi</p>
+            <p class="mb-0" style="font-family: Poppins, sans-serif; color: black;">Copyright © 2022 Anoop Joshi</p>
+        </div>
+    </footer>
+    <script src="../static/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/assets/js/bs-init.js"></script>
+</body>
+
+</html>
